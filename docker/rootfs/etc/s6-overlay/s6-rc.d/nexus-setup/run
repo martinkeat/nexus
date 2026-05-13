@@ -1,0 +1,30 @@
+#!/command/with-contenv bash
+
+echo "[Nexus] Performing initial setup..."
+
+# Ensure config subdirectories exist
+mkdir -p /config/nexus/backups
+mkdir -p /config/qbittorrent
+mkdir -p /config/sabnzbd
+mkdir -p /config/sonarr
+mkdir -p /config/radarr
+mkdir -p /config/lidarr
+mkdir -p /config/whisparr
+mkdir -p /config/prowlarr
+mkdir -p /config/overseerr
+mkdir -p /config/flaresolverr
+mkdir -p /config/ffmpeg/profiles
+mkdir -p /config/ffmpeg/presets
+
+# Ensure download subdirectories exist
+mkdir -p /downloads/incomplete/torrents
+mkdir -p /downloads/incomplete/usenet
+mkdir -p /downloads/complete/torrents/{tv,movies,music,adult}
+mkdir -p /downloads/complete/usenet/{tv,movies,music,adult}
+
+# Ensure transcode subdirectories exist
+mkdir -p /transcode/{queue,working,completed,failed,logs}
+
+# We don't chmod broad host paths, but we ensure the app can write to its own config
+# The user is responsible for mapping volumes with correct permissions (Unraid 99:100)
+echo "[Nexus] Setup complete."

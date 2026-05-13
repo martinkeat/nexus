@@ -1,0 +1,5 @@
+#!/command/with-contenv bash
+
+echo "[Nexus] Starting Worker..."
+cd /app/worker
+exec /app/venv/bin/python main.py
