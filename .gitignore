@@ -1,0 +1,52 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Secrets - NEVER commit these
+**/secrets.yml
+**/secrets.yaml
+**/.env
+**/*.key
+**/*.pem
+
+# Nexus runtime
+test-config/
+test-downloads/
+test-tv/
+test-movies/
+test-music/
+test-adult/
+test-transcode/
+
+# Service databases and state
+*.db
+*.db-shm
+*.db-wal
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+dist/
+build/
+*.tar.gz
+
+# Coverage
+.coverage
+htmlcov/
+coverage.xml
+
+# Docker
+.docker/

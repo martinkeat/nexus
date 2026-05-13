@@ -1,0 +1,23 @@
+services:
+  nexus:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: nexus
+    ports:
+      - "8080:8080"
+      - "6881:6881"
+      - "6881:6881/udp"
+    environment:
+      - PUID=99
+      - PGID=100
+      - TZ=Europe/London
+    volumes:
+      - ./test-config:/config
+      - ./test-downloads:/downloads
+      - ./test-tv:/tv
+      - ./test-movies:/movies
+      - ./test-music:/music
+      - ./test-adult:/adult
+      - ./test-transcode:/transcode
+    restart: unless-stopped
