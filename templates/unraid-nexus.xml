@@ -9,14 +9,25 @@
   <Privileged>false</Privileged>
   <Support>https://github.com/martinkeat/nexus/issues</Support>
   <Project>https://github.com/martinkeat/nexus</Project>
-  <Overview>Nexus is a unified media automation platform that consolidates qBittorrent, SABnzbd, Sonarr, Radarr, Lidarr, Whisparr, Prowlarr, Overseerr, FlareSolverr, and FFmpeg-based transcoding behind one beautiful, modern web interface. Managed by a single s6-overlay process supervisor, it provides a centralized control plane for your entire media stack.</Overview>
-  <Category>MediaApp:Video MediaApp:Music Downloaders:</Category>
+  <Overview>Nexus is a premium unified media automation platform that consolidates qBittorrent, SABnzbd, Sonarr, Radarr, Lidarr, Whisparr, Prowlarr, Overseerr, FlareSolverr, and FFmpeg-based transcoding behind one beautiful, modern web interface. Managed by a single s6-overlay process supervisor, it provides a centralized control plane for your entire media stack with native GPU acceleration and intelligent service management.&#xD;
+&#xD;
+[b]Features:[/b]&#xD;
+- [b]Unified Dashboard:[/b] Overview of all downloads, media, and service health.&#xD;
+- [b]Service Control:[/b] Start, stop, and restart individual services from one UI.&#xD;
+- [b]Transcoding Regulariser:[/b] Automated FFmpeg-based transcoding with hardware acceleration.&#xD;
+- [b]Single Container:[/b] Drastically reduces resource overhead compared to individual containers.</Overview>
+  <Category>MediaApp:Video MediaApp:Music MediaApp:Photos Downloaders: Tools:Utilities</Category>
   <WebUI>http://[IP]:[PORT:8080]</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/martinkeat/nexus/main/templates/unraid-nexus.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/martinkeat/nexus/main/branding/app-icon-512.png</Icon>
   <ExtraParams>--device /dev/dri:/dev/dri</ExtraParams>
   <PostArgs/>
   <CPUset/>
+  <Date>2026-05-13</Date>
+  <Changes>[b]Version 0.1.0-alpha[/b]&#xD;
+- Initial release with support for 10+ integrated services.&#xD;
+- Unified dashboard and health monitoring.&#xD;
+- Intel/AMD GPU hardware acceleration support.</Changes>
   <DateInstalled/>
   <DonateText/>
   <DonateLink/>

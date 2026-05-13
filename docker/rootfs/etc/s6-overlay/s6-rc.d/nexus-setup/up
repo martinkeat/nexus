@@ -2,19 +2,10 @@
 
 echo "[Nexus] Performing initial setup..."
 
-# Ensure config subdirectories exist
-mkdir -p /config/nexus/backups
-mkdir -p /config/qbittorrent
-mkdir -p /config/sabnzbd
-mkdir -p /config/sonarr
-mkdir -p /config/radarr
-mkdir -p /config/lidarr
-mkdir -p /config/whisparr
-mkdir -p /config/prowlarr
-mkdir -p /config/overseerr
-mkdir -p /config/flaresolverr
-mkdir -p /config/ffmpeg/profiles
-mkdir -p /config/ffmpeg/presets
+# Ensure all service config directories exist
+for service in qbittorrent sabnzbd sonarr radarr lidarr whisparr prowlarr overseerr flaresolverr; do
+    mkdir -p "/config/$service"
+done
 
 # Ensure download subdirectories exist
 mkdir -p /downloads/incomplete/torrents
@@ -25,6 +16,10 @@ mkdir -p /downloads/complete/usenet/{tv,movies,music,adult}
 # Ensure transcode subdirectories exist
 mkdir -p /transcode/{queue,working,completed,failed,logs}
 
-# We don't chmod broad host paths, but we ensure the app can write to its own config
-# The user is responsible for mapping volumes with correct permissions (Unraid 99:100)
+# Fix permissions for /config and /transcode
+# We use PUID/PGID if provided, otherwise default to 99:100 (Unraid)
+CHOWN_USER="${PUID:-99}:${PGID:-100}"
+echo "[Nexus] Setting ownership to $CHOWN_USER..."
+chown -R "$CHOWN_USER" /config /downloads /transcode /tv /movies /music /adult
+
 echo "[Nexus] Setup complete."

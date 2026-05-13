@@ -1,0 +1,3 @@
+#!/command/with-contenv bash
+echo "[Nexus] Starting Radarr..."
+exec /opt/Radarr/Radarr -nobrowser -data=/config/radarr
