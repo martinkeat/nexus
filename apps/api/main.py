@@ -3,13 +3,18 @@ import uvicorn
 import os
 from adapters.qbittorrent import QBittorrentAdapter
 from adapters.sabnzbd import SABnzbdAdapter
+from adapters.arr import SonarrAdapter, RadarrAdapter, LidarrAdapter, WhisparrAdapter
 
 app = FastAPI(title="Nexus API", version="0.1.0")
 
 # Service Registry
 adapters = {
     "qbittorrent": QBittorrentAdapter(),
-    "sabnzbd": SABnzbdAdapter()
+    "sabnzbd": SABnzbdAdapter(),
+    "sonarr": SonarrAdapter(),
+    "radarr": RadarrAdapter(),
+    "lidarr": LidarrAdapter(),
+    "whisparr": WhisparrAdapter()
 }
 
 @app.get("/api/health")
