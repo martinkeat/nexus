@@ -24,6 +24,24 @@ adapters = {
     "transcoder": TranscoderAdapter()
 }
 
+@app.post("/api/services/{service_name}/restart")
+async def restart_service(service_name: str):
+    if service_name not in adapters:
+        return {"error": "Service not found"}, 404
+    # TODO: Implement s6-overlay restart via adapter
+    return {"message": f"Restart request sent for {service_name}"}
+
+@app.get("/api/settings")
+async def get_settings():
+    from core.settings import settings
+    return settings.config.dict()
+
+@app.put("/api/settings")
+async def update_settings(new_settings: dict):
+    from core.settings import settings
+    # TODO: Validate and update settings
+    return {"message": "Settings updated"}
+
 @app.get("/api/health")
 async def health():
     return {"status": "healthy", "service": "nexus-api"}
