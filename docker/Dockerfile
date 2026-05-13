@@ -33,8 +33,7 @@ RUN apk add --no-cache \
 
 # Install FFmpeg and other media tools
 RUN apk add --no-cache \
-    ffmpeg \
-    ffprobe
+    ffmpeg
 
 # Create directory structure
 RUN mkdir -p \

@@ -21,6 +21,20 @@ class ArrAdapter(ServiceAdapter):
         except Exception:
             return HealthStatus.STOPPED
 
+    async def version(self) -> Optional[str]:
+        if not self.api_key:
+            return None
+        try:
+            async with aiohttp.ClientSession() as session:
+                headers = {"X-Api-Key": self.api_key}
+                async with session.get(f"{self.internal_url}/api/v3/system/status", headers=headers, timeout=2) as resp:
+                    if resp.status == 200:
+                        data = await resp.json()
+                        return data.get("version")
+        except Exception:
+            return None
+        return None
+
     async def get_status(self) -> Dict[str, Any]:
         return {
             "name": self.name,
