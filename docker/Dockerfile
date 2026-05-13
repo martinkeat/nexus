@@ -70,6 +70,7 @@ COPY --from=web-build /app/dist /app/web
 COPY apps/api /app/api
 COPY apps/worker /app/worker
 COPY apps/transcoder /app/transcoder
+COPY branding /app/branding
 
 # Copy Docker rootfs (scripts, s6-overlay configs)
 COPY docker/rootfs /

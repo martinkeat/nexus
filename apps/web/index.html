@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Nexus - Unified Media Control</title>
+    <!-- Tabler Core -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/css/tabler.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/css/tabler-flags.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/css/tabler-payments.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/css/tabler-vendors.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <style>
+      @import url('https://rsms.me/inter/inter.css');
+      :root {
+        --tblr-font-sans-serif: 'Inter var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+      }
+      body {
+        font-feature-settings: "cv03", "cv04", "cv11";
+      }
+      .navbar-brand-image {
+        height: 2rem;
+      }
+    </style>
+  </head>
+  <body class="theme-dark">
+    <div class="page">
+      <!-- Sidebar -->
+      <aside class="navbar navbar-vertical navbar-expand-lg" data-bs-theme="dark">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar-menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <h1 class="navbar-brand navbar-brand-autodark">
+            <a href=".">
+              <img src="/branding/nexus-logo-dark.svg" width="110" height="32" alt="Nexus" class="navbar-brand-image">
+            </a>
+          </h1>
+          <div class="collapse navbar-collapse" id="sidebar-menu">
+            <ul class="navbar-nav pt-lg-3">
+              <li class="nav-item active">
+                <a class="nav-link" href="./">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block"><i class="ti ti-dashboard"></i></span>
+                  <span class="nav-link-title">Overview</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#requests">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block"><i class="ti ti-git-pull-request"></i></span>
+                  <span class="nav-link-title">Requests</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#downloads">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block"><i class="ti ti-download"></i></span>
+                  <span class="nav-link-title">Downloads</span>
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false" >
+                  <span class="nav-link-icon d-md-none d-lg-inline-block"><i class="ti ti-device-tv"></i></span>
+                  <span class="nav-link-title">Media</span>
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#media-tv">TV</a>
+                  <a class="dropdown-item" href="#media-movies">Movies</a>
+                  <a class="dropdown-item" href="#media-music">Music</a>
+                  <a class="dropdown-item" href="#media-adult">Adult</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#indexers">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block"><i class="ti ti-search"></i></span>
+                  <span class="nav-link-title">Indexers</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#transcoding">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block"><i class="ti ti-video"></i></span>
+                  <span class="nav-link-title">Transcoding</span>
+                </a>
+              </li>
+              <hr class="my-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#services">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block"><i class="ti ti-server"></i></span>
+                  <span class="nav-link-title">Services</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#settings">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block"><i class="ti ti-settings"></i></span>
+                  <span class="nav-link-title">Settings</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+      <div class="page-wrapper">
+        <!-- Page header -->
+        <div class="page-header d-print-none text-white">
+          <div class="container-xl">
+            <div class="row g-2 align-items-center">
+              <div class="col">
+                <div class="page-pretitle">Control Plane</div>
+                <h2 class="page-title">Dashboard Overview</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Page body -->
+        <div class="page-body">
+          <div class="container-xl" id="nexus-content">
+            <div class="row row-deck row-cards">
+              <!-- Service Health Cards (JS will populate) -->
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header"><h3 class="card-title">System Health</h3></div>
+                  <div class="table-responsive">
+                    <table class="table card-table table-vcenter text-nowrap datatable">
+                      <thead>
+                        <tr>
+                          <th>Service</th>
+                          <th>Status</th>
+                          <th>Version</th>
+                          <th>Uptime</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody id="service-table-body">
+                        <!-- Populated by JS -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Libs JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/js/tabler.min.js" defer></script>
+    <script>
+      async function updateStatus() {
+        try {
+          const response = await fetch('/api/status');
+          const data = await response.json();
+          const tableBody = document.getElementById('service-table-body');
+          tableBody.innerHTML = '';
+
+          for (const [name, status] of Object.entries(data.services)) {
+            const tr = document.createElement('tr');
+            
+            let statusBadge = '<span class="badge bg-secondary">Unknown</span>';
+            if (status.health === 'healthy') statusBadge = '<span class="badge bg-success">Healthy</span>';
+            else if (status.health === 'starting') statusBadge = '<span class="badge bg-info">Starting</span>';
+            else if (status.health === 'error') statusBadge = '<span class="badge bg-danger">Error</span>';
+            else if (status.health === 'unconfigured') statusBadge = '<span class="badge bg-warning">Setup Required</span>';
+
+            tr.innerHTML = `
+              <td><div class="d-flex align-items-center"><span class="avatar avatar-sm me-2" style="background-image: url(./branding/nexus-mark.svg)"></span> ${name}</div></td>
+              <td>${statusBadge}</td>
+              <td>${status.version || 'N/A'}</td>
+              <td>-</td>
+              <td class="text-end">
+                <button class="btn btn-sm btn-ghost-primary" onclick="restartService('${name}')">Restart</button>
+              </td>
+            `;
+            tableBody.appendChild(tr);
+          }
+        } catch (error) {
+          console.error('Failed to fetch status:', error);
+        }
+      }
+
+      async function restartService(name) {
+        await fetch(`/api/services/${name}/restart`, { method: 'POST' });
+        updateStatus();
+      }
+
+      // Initial load
+      updateStatus();
+      // Poll every 10 seconds
+      setInterval(updateStatus, 10000);
+    </script>
+  </body>
+</html>
