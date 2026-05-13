@@ -6,6 +6,7 @@ from adapters.sabnzbd import SABnzbdAdapter
 from adapters.arr import SonarrAdapter, RadarrAdapter, LidarrAdapter, WhisparrAdapter, ProwlarrAdapter
 from adapters.overseerr import OverseerrAdapter
 from adapters.flaresolverr import FlareSolverrAdapter
+from adapters.transcoder import TranscoderAdapter
 
 app = FastAPI(title="Nexus API", version="0.1.0")
 
@@ -19,7 +20,8 @@ adapters = {
     "whisparr": WhisparrAdapter(),
     "prowlarr": ProwlarrAdapter(),
     "overseerr": OverseerrAdapter(),
-    "flaresolverr": FlareSolverrAdapter()
+    "flaresolverr": FlareSolverrAdapter(),
+    "transcoder": TranscoderAdapter()
 }
 
 @app.get("/api/health")
