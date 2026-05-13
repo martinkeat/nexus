@@ -3,7 +3,9 @@ import uvicorn
 import os
 from adapters.qbittorrent import QBittorrentAdapter
 from adapters.sabnzbd import SABnzbdAdapter
-from adapters.arr import SonarrAdapter, RadarrAdapter, LidarrAdapter, WhisparrAdapter
+from adapters.arr import SonarrAdapter, RadarrAdapter, LidarrAdapter, WhisparrAdapter, ProwlarrAdapter
+from adapters.overseerr import OverseerrAdapter
+from adapters.flaresolverr import FlareSolverrAdapter
 
 app = FastAPI(title="Nexus API", version="0.1.0")
 
@@ -14,7 +16,10 @@ adapters = {
     "sonarr": SonarrAdapter(),
     "radarr": RadarrAdapter(),
     "lidarr": LidarrAdapter(),
-    "whisparr": WhisparrAdapter()
+    "whisparr": WhisparrAdapter(),
+    "prowlarr": ProwlarrAdapter(),
+    "overseerr": OverseerrAdapter(),
+    "flaresolverr": FlareSolverrAdapter()
 }
 
 @app.get("/api/health")

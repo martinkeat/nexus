@@ -46,3 +46,7 @@ class LidarrAdapter(ArrAdapter):
 class WhisparrAdapter(ArrAdapter):
     def __init__(self, internal_url: str = "http://127.0.0.1:6969"):
         super().__init__("whisparr", internal_url)
+
+class ProwlarrAdapter(ArrAdapter):
+    def __init__(self, internal_url: str = "http://127.0.0.1:9696"):
+        super().__init__("prowlarr", internal_url)
